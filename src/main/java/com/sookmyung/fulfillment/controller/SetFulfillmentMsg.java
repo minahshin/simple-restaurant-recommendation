@@ -11,10 +11,10 @@ public class SetFulfillmentMsg {
 		
 //		HashMap<String, Object> type0 = new HashMap<String, Object>();
 //		type0.put("type", 0);
-//		type0.put("speech", "ÀÌ°ÍÀº messagesÀÇ speechÀÔ´Ï´Ù.");
+//		type0.put("speech", "ì´ ë©”ì„¸ì§€ëŠ” fulfillementì˜ speechì…ë‹ˆë‹¤.");
 		
-		res.setSpeech("ÀÌ°ÍÀº speech ÀÔ´Ï´Ù");
-		res.setDisplayText("ÀÌ°ÍÀº displaytextÀÔ´Ï´Ù");
+		res.setSpeech("ì´ ë©”ì„¸ì§€ëŠ” speechì…ë‹ˆë‹¤");
+		res.setDisplayText("ì´ ë©”ì„¸ì§€ëŠ” displaytextì…ë‹ˆë‹¤");
 //		res.getMessages().add(type0);
 		
 		return res;
