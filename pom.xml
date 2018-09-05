@@ -35,14 +35,7 @@
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
-		 <dependency>
-		      <groupId>org.springframework.boot</groupId>
-		      <artifactId>spring-boot-starter-actuator</artifactId>
-		    </dependency>
-		    <dependency>
-		      <groupId>org.springframework.boot</groupId>
-		      <artifactId>spring-boot-starter-web</artifactId>
-		    </dependency>
+		
 		<!-- Apache HttpClient for pdf upload from local server to remote server -->
 	    <dependency>
 	        <groupId>org.apache.httpcomponents</groupId>
