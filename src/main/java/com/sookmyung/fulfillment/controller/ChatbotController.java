@@ -29,8 +29,10 @@ public class ChatbotController {
 		ResponseForm res = new ResponseForm();
 		SetFulfillmentMsg setting = new SetFulfillmentMsg();
 
-		res = setting.setMsg();
+	//	res = setting.setMsg();
 	
+		res.setDisplayText("fulfillment");
+		res.setSpeech("fulfillment");
 		
 		return res;
 	}
