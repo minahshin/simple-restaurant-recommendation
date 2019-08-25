@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.sookmyung.fulfillment.db.restaurant.RestaurantMapper">
+    <resultMap type="Restaurant" id="ResultRestaurant">
+        <result property="id" column="id" />
+        <result property="name" column="name" />
+        <result property="big_category" column="big_category" />
+        <result property="small_category" column="small_category" />
+        <result property="address" column="address" />
+        <result property="longitude" column="longitude" />
+        <result property="latitude" column="latitude" />
+        <result property="time" column="time" />
+        <result property="menu" column="menu" />
+    </resultMap>
+    
+    <select id="getRestaurants" resultMap="ResultRestaurant">
+        SELECT * 
+        FROM restaurant
+    </select>
+    
+    <select id="getRestaurantByLocationTimeBigCategory" resultMap="ResultRestaurant">
+    	SELECT *,	
+    	(6371 * Acos(Cos(Radians(${latitude})) * Cos(Radians(latitude)) * Cos(Radians(longitude) - Radians(${longitude})) + Sin(Radians(${latitude})) * Sin(Radians(latitude)))) AS distance
+		FROM restaurant
+		WHERE big_category = #{big_category} AND time like '%${time}%'
+		HAVING distance &lt; #{distance}
+		ORDER BY RAND()
+		LIMIT 1
+    </select>
+    
+    <select id="getRestaurantByLocationMenu" resultMap="ResultRestaurant">
+    	SELECT *,	
+    	(6371 * Acos(Cos(Radians(${latitude})) * Cos(Radians(latitude)) * Cos(Radians(longitude) - Radians(${longitude})) + Sin(Radians(${latitude})) * Sin(Radians(latitude)))) AS distance
+		FROM restaurant
+		WHERE menu like '%${menu}%'
+		HAVING distance &lt; #{distance}
+		ORDER BY RAND()
+		LIMIT 1
+    </select>
+    
+    <select id="getRestaurantByLocationSmallCategory" resultMap="ResultRestaurant">
+    	SELECT *,	
+    	(6371 * Acos(Cos(Radians(${latitude})) * Cos(Radians(latitude)) * Cos(Radians(longitude) - Radians(${longitude})) + Sin(Radians(${latitude})) * Sin(Radians(latitude)))) AS distance
+		FROM restaurant
+		WHERE small_category like '%${small_category}%'
+		HAVING distance &lt; #{distance}
+		ORDER BY RAND()
+		LIMIT 1
+    </select>
+    
+    <select id="getRestaurantByTime" parameterType="String" resultMap="ResultRestaurant">
+    	SELECT *
+    	FROM restaurant
+    	WHERE time = #{time}
+    	ORDER BY RAND()
+    	LIMIT 1
+    </select>
+</mapper>

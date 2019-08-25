@@ -1,6 +1,5 @@
-src/main/webapp/WEB-INF/
 target/
-src/main/resources/
 .classpath
 .project
 .settings/
+src/main/webapp/WEB-INF/views/home.jsp
